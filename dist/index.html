@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#113a58">
+  <meta name="description" content="Интерактивная математика для 3–4 классов: примеры, задачи и понятные решения по шагам.">
+  <title>Математика по шагам</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23113a58'/%3E%3Cpath d='M16 32h32M32 16v32' stroke='%23ffd26f' stroke-width='7' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./script.js" defer></script>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="brand"><span class="brand-mark" aria-hidden="true">＋</span><span>Математика <strong>по шагам</strong></span></div>
+      <div class="grade-switch" role="group" aria-label="Выбери класс">
+        <button type="button" class="grade-button active" data-grade="3" aria-pressed="true">3 класс</button>
+        <button type="button" class="grade-button" data-grade="4" aria-pressed="false">4 класс</button>
+      </div>
+    </header>
+
+    <main>
+      <div class="intro-row">
+        <div><p class="eyebrow">ТРЕНИРОВКА</p><h1>Решай. Понимай. Пробуй снова.</h1><p class="intro-copy">Выбери тему и реши пример. Если трудно, открой подсказку. После ответа разберём решение вместе.</p></div>
+        <div class="progress-summary" aria-live="polite"><span class="summary-icon" aria-hidden="true">★</span><div><strong id="solved-count">0</strong><span>заданий решено</span></div></div>
+      </div>
+
+      <div class="workspace">
+        <aside class="topics-panel" aria-label="Темы">
+          <div class="panel-heading"><span>Выбери тему</span><span class="panel-heading-icon" aria-hidden="true">✦</span></div>
+          <nav id="topic-list" class="topic-list" aria-label="Темы математики"></nav>
+          <div class="level-note"><span class="level-note-icon" aria-hidden="true">↗</span><p>После 3 верных ответов по теме откроется следующий уровень.</p></div>
+        </aside>
+
+        <section class="exercise-panel" aria-labelledby="exercise-title">
+          <div class="exercise-topline"><span id="topic-label" class="topic-label"></span><span id="level-label" class="level-label"></span></div>
+          <div class="level-track" id="level-track" aria-label="Прогресс уровня"></div>
+          <h2 id="exercise-title">Попробуй решить</h2>
+          <p id="exercise-text" class="exercise-text"></p>
+          <form id="answer-form" class="answer-form">
+            <label for="answer-input">Твой ответ</label>
+            <div class="answer-row"><input id="answer-input" name="answer" type="text" inputmode="decimal" autocomplete="off" aria-describedby="answer-hint" required><button type="submit" class="primary-button">Проверить <span aria-hidden="true">→</span></button></div>
+            <p id="answer-hint" class="answer-hint">Можно написать только число.</p>
+          </form>
+          <div class="exercise-actions"><button type="button" id="hint-button" class="text-button">Показать подсказку</button><button type="button" id="skip-button" class="text-button">Другое задание <span aria-hidden="true">↻</span></button></div>
+          <div id="feedback" class="feedback" aria-live="polite" hidden></div>
+          <div id="explanation" class="explanation" hidden></div>
+          <button type="button" id="next-button" class="primary-button next-button" hidden>Следующее задание <span aria-hidden="true">→</span></button>
+        </section>
+      </div>
+    </main>
+    <footer>Не спеши: понять решение важнее, чем ответить быстро.</footer>
+  </div>
+</body>
+</html>
