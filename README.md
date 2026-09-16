@@ -6,17 +6,13 @@
 
 Нужны Git и Docker с поддержкой Compose. Выполните в терминале:
 
-Репозиторий приватный, поэтому для скачивания нужен доступ к нему в GitHub.
-
 ```sh
 git clone https://github.com/stxdcgit/matematika-po-shagam.git
 cd matematika-po-shagam
-docker compose up -d --build
+docker compose up -d
 ```
 
-Откройте [http://localhost:8080](http://localhost:8080). Сайт доступен только на этом компьютере.
-
-Если порт 8080 уже занят ранее запущенным контейнером сайта, остановите его командой `docker stop matematika-po-shagam-local` и повторите запуск.
+Откройте [http://localhost:18080](http://localhost:18080). Готовый образ загружается из GitHub Container Registry.
 
 Остановить контейнер:
 
@@ -25,3 +21,12 @@ docker compose down
 ```
 
 Прогресс сохраняется в браузере на этом устройстве.
+
+## Portainer на TrueNAS SCALE
+
+1. Откройте **Stacks → Add stack** и задайте имя `matematika-po-shagam`.
+2. Выберите **Repository**, укажите `https://github.com/stxdcgit/matematika-po-shagam.git`, ветку `main` и путь к файлу `compose.yaml`.
+3. Нажмите **Deploy the stack**. Portainer загрузит готовый образ, сборка внутри Portainer больше не требуется.
+4. Откройте `http://IP-АДРЕС-TRUENAS:18080`. Если порт 18080 занят, измените левое число в разделе `ports` файла `compose.yaml` в своей копии репозитория.
+
+При обновлении ветки `main` GitHub Actions публикует новый образ `ghcr.io/stxdcgit/matematika-po-shagam:latest`. Для обновления стека в Portainer выберите повторную загрузку образа (**Pull latest image**).

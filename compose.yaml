@@ -1,7 +1,6 @@
 services:
   math-site:
-    build: .
-    image: matematika-po-shagam:local
+    image: ghcr.io/stxdcgit/matematika-po-shagam:latest
     container_name: matematika-po-shagam
     restart: unless-stopped
     ports:
