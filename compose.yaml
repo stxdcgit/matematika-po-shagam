@@ -1,0 +1,8 @@
+services:
+  math-site:
+    build: .
+    image: matematika-po-shagam:local
+    container_name: matematika-po-shagam
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8080:80"
