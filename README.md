@@ -6,6 +6,8 @@
 
 Нужны Git и Docker с поддержкой Compose. Выполните в терминале:
 
+Репозиторий приватный, поэтому для скачивания нужен доступ к нему в GitHub.
+
 ```sh
 git clone https://github.com/stxdcgit/matematika-po-shagam.git
 cd matematika-po-shagam
@@ -13,6 +15,8 @@ docker compose up -d --build
 ```
 
 Откройте [http://localhost:8080](http://localhost:8080). Сайт доступен только на этом компьютере.
+
+Если порт 8080 уже занят ранее запущенным контейнером сайта, остановите его командой `docker stop matematika-po-shagam-local` и повторите запуск.
 
 Остановить контейнер:
 
